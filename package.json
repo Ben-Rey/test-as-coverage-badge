@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Ben-Rey/test-as-coverage-badge#readme",
   "devDependencies": {
+    "@as-pect/cli": "^8.0.1",
     "assemblyscript": "^0.27.1"
   },
   "type": "module",
