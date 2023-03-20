@@ -17,14 +17,14 @@ export default {
   async instantiate(memory, createImports, instantiate, binary) {
     let instance; // Imports can reference this
     const myImports = {
-      env: { memory },
+      env: { memory }
       // put your web assembly imports here, and return the module promise
     };
     instance = instantiate(binary, createImports(myImports));
     return instance;
   },
   /** Enable code coverage. */
-  coverage: ["assembly/**/*.ts"],
+  // coverage: ["assembly/**/*.ts"],
   /**
    * Specify if the binary wasm file should be written to the file system.
    */
