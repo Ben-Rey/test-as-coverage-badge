@@ -39,7 +39,7 @@ jobs:
               path: 'Readme.md',
               message: 'Update README',
               content: Buffer.from(lines.join('\n')).toString('base64'),
-              sha: context.sha
+              sha: context.payload.repository.head_commit.sha,
             });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
