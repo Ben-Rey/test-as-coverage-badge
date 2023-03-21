@@ -24,19 +24,8 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const content = fs.readFileSync('README.md', 'utf8');
-            const lines = content.split('\n');
-            lines[1] = 'This is the new content for the second line';
-
-            fs.writeFileSync('README.md', lines.join('\n'));
-
-            github.repos.createOrUpdateFileContents({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              path: 'README.md',
-              message: 'Update README',
-              content: Buffer.from(lines.join('\n')).toString('base64'),
-              sha: context.payload.repository.head_commit.sha,
+            fs.readdirSync('./').forEach(file => {
+              console.log(file);
             });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
