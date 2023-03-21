@@ -29,7 +29,7 @@ jobs:
             });
             const content = fs.readFileSync('Readme.md', 'utf8');
             const lines = content.split('\n');
-            lines[1] = '![check-code-coverage](https://img.shields.io/badge/code--coverage-80%-brightgreen)';
+            lines[1] = '![check-code-coverage](https://img.shields.io/badge/coverage-70%25-orange)\n';
 
             fs.writeFileSync('Readme.md', lines.join('\n'));
 
