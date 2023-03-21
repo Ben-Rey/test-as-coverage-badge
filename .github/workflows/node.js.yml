@@ -34,6 +34,9 @@ jobs:
             fs.writeFileSync('Readme.md', lines.join('\n'));
 
             console.log('Updated Readme.md');
+            console.log(github.repos);
+
+
 
             github.repos.createOrUpdateFileContents({
                 owner: context.repo.owner,
