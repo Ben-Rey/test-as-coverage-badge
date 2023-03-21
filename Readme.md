@@ -1,5 +1,6 @@
 # Massa-as-sdk
 
+![check-code-coverage](https://img.shields.io/badge/coverage-${coverage}%25-${color})
 _Massa Assemblyscript SDK_
 
 A collection of tools, objects and functions, specific in usage for Massa smart contracts, in AssemblyScript.

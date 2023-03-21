@@ -27,9 +27,14 @@ jobs:
             fs.readdirSync('./').forEach(file => {
               console.log(file);
             });
+
+            const color = 'orange';
+            const coverage = 70;
+            const badgeUrl = `![check-code-coverage](https://img.shields.io/badge/coverage-${coverage}%25-${color})`; 
             const content = fs.readFileSync('Readme.md', 'utf8');
             const lines = content.split('\n');
-            lines[1] = '![check-code-coverage](https://img.shields.io/badge/coverage-70%25-orange)\n';
+            const index = lines.findIndex(line => line.includes('check-code-coverage'));
+            lines[index] = badgeUrl;
 
             fs.writeFileSync('Readme.md', lines.join('\n'));
 
