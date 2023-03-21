@@ -34,7 +34,6 @@ jobs:
             fs.writeFileSync('Readme.md', lines.join('\n'));
 
             console.log('Updated Readme.md');
-            console.log(github.repos);
 
             github.repos.createOrUpdateFileContents({
                 owner: context.repo.owner,
@@ -42,6 +41,7 @@ jobs:
                 path: 'Readme.md',
                 message: 'Update README',
                 content: Buffer.from(lines.join('\n')).toString('base64'),
+                sha: github.sha 
               });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
