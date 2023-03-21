@@ -36,7 +36,12 @@ jobs:
             console.log('Updated Readme.md');
             console.log(github.repos);
 
-
+            const response = await github.repos.getContent({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              path: 'Readme.md'
+            });
+            console.log(response.data.sha);
 
             github.repos.createOrUpdateFileContents({
                 owner: context.repo.owner,
@@ -44,7 +49,7 @@ jobs:
                 path: 'Readme.md',
                 message: 'Update README',
                 content: Buffer.from(lines.join('\n')).toString('base64'),
-                sha: github.sha 
+                sha: response.data.sha
               });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
