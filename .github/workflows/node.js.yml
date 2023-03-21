@@ -28,7 +28,7 @@ jobs:
               console.log(file);
             });
 
-            const color = 'orange';
+            const color = 'green';
             const coverage = 70;
             const badgeUrl = `![check-code-coverage](https://img.shields.io/badge/coverage-${coverage}%25-${color})`; 
             const content = fs.readFileSync('Readme.md', 'utf8');
