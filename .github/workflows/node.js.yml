@@ -35,5 +35,13 @@ jobs:
 
             console.log('Updated Readme.md');
             console.log(github.repos);
+
+            github.repos.createOrUpdateFileContents({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: 'Readme.md',
+                message: 'Update README',
+                content: Buffer.from(lines.join('\n')).toString('base64'),
+              });
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
